@@ -7,6 +7,14 @@ require("./base-orm/sqlite-init");  // crear base si no existe
 
 app.use(express.json()); // para poder leer json en el body
 
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "*", // origin: 'https://dds-frontend.azurewebsites.net'
+  })
+);
+
+
 // controlar ruta
 app.get("/", (req, res) => {
   res.send("Backend inicial dds-backend!");

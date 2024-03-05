@@ -14,10 +14,25 @@ app.use(
   })
 );
 
+// express maneja archivos estaticos, esto nos permite unir al backend el codigo del frontend (que es estatico)
+// lo cual lo logramos con al colocar el contenido del build de react en la carpeta public
+/*
+app.use(express.static('public'));
+const path = require('path'); // Include path module
+app.use((req, res, next) => {
+  if (!req.url.startsWith('/api')) {
+    // Manejar la solicitud
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  } else {
+    // Pasar la solicitud al siguiente middleware
+    next();
+  }
+});
+*/
 
 // controlar ruta
 app.get("/", (req, res) => {
-  res.send("Backend inicial dds-backend!");
+  res.send("dds-backend iniciado!");
 });
 
 const articulosfamiliasmockRouter = require("./routes/articulosfamiliasmock");
